@@ -43,10 +43,8 @@ model BoardColumns {
   columns    Json
 }
 
-model BoardTask {
+model Task {
   id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  columnId   String
-  boardId    String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
@@ -54,14 +52,5 @@ model BoardTask {
   status     String
   deadline   String
   priority   String
-  executors  String[]
+  executors  String
 }
-// type UserId = string;
-
-// interface ITask {
-//   title: string;
-//   status: string;
-//   deadline: string;
-//   priority: string;
-//   executers: UserId[];
-// }

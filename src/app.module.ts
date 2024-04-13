@@ -5,11 +5,18 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { BoardsModule } from './boards/boards.module';
-import { BoardColumnModule } from './board-column/board-column.module';
 import { BoardColumnsModule } from './board-columns/board-columns.module';
+import { TaskModule } from './task/task.module';
 
 @Module({
-  imports: [PrismaModule, AuthModule, UsersModule, BoardsModule, BoardColumnModule, BoardColumnsModule],
+  imports: [
+    PrismaModule,
+    AuthModule,
+    UsersModule,
+    BoardsModule,
+    BoardColumnsModule,
+    TaskModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
