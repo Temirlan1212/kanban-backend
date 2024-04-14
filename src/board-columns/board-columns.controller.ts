@@ -8,6 +8,7 @@ import {
   Delete,
   ValidationPipe,
   Query,
+  Put,
 } from '@nestjs/common';
 import { CreateBoardColumnDto } from './dto/create-board-column.dto';
 import { UpdateBoardColumnDto } from './dto/update-board-column.dto';
@@ -44,7 +45,7 @@ export class BoardColumnsController {
     return this.boardColumnsService.findOneByBoardId(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body(ValidationPipe) updateBoardColumnDto: UpdateBoardColumnDto,
@@ -52,7 +53,7 @@ export class BoardColumnsController {
     return this.boardColumnsService.update(id, updateBoardColumnDto);
   }
 
-  @Patch('boardId/:id')
+  @Put('boardId/:id')
   updateByBoardId(
     @Param('id') id: string,
     @Body(ValidationPipe) updateBoardColumnDto: UpdateBoardColumnDto,

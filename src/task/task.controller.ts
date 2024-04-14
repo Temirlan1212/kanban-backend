@@ -8,6 +8,7 @@ import {
   Delete,
   ValidationPipe,
   Query,
+  Put,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
@@ -44,7 +45,7 @@ export class TaskController {
     return this.taskService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto) {
     console.log(updateTaskDto, id, 'updateTaskData');
     return this.taskService.update(id, updateTaskDto);

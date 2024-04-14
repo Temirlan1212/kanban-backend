@@ -8,6 +8,7 @@ import {
   Delete,
   ValidationPipe,
   Query,
+  Put,
 } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
@@ -43,7 +44,7 @@ export class BoardsController {
     return this.boardsService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body(ValidationPipe) updateBoardDto: UpdateBoardDto,
