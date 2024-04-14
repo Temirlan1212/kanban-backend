@@ -55,6 +55,7 @@ export class TaskService {
   }
 
   async update(id: string, updateTodoDto: UpdateTaskDto) {
+    await this.validateOnTodoNotExist(id);
     await this.prismaService.task.update({
       where: { id: String(id) },
       data: updateTodoDto,
